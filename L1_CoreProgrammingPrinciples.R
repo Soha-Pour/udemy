@@ -40,6 +40,7 @@ name <- "bob"
 message <- paste(greeting, name)
 message
 
+<<<<<<< HEAD
 #logical 
 
 4 < 5 
