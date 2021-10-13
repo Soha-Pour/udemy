@@ -6,7 +6,7 @@ This project contains all the coursework from Udemy's R Programming A-Z course.
 ## Course Content
 
 * Section 1: Hit The Ground Running (DONE 10/8/21)
-* Section 2: Core Programming Principles
+* Section 2: Core Programming Principles (DONE 10/13/21)
 * Section 3: Fundamentals of R
 * Section 4: Matricies
 * Section 5: Data Frames
