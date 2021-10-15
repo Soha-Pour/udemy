@@ -90,7 +90,8 @@ x <- rnorm(5)
 x
 
 #get each element to print out individually
-#i is a variable that takes on the value of each element in x
+#R specific programming loop (vectorized)
+#the i variable is iterating over each element in the vector
 
 for (i in x){
   print(i)
@@ -98,9 +99,95 @@ for (i in x){
 
 print(x[4])
 
-#conventional programming loop
-#the variable inside the bracket changes from 1-5 
+#conventional programming loop (de-vectorized)
+#the j variable is iterating over each number in the vector 
+#the two loops do the same thing but they're behaving slightly differently 
 
 for(j in 1:5){
   print(x[j])
 }
+
+
+#compare vectorized operations with de-vectorized operations
+
+N <- 100
+a <- rnorm(N)
+b <- rnorm(N)
+
+#vectorized approach
+#this one is better because it runs faster and takes less code. r runs on other programming languages like C and for some reason it's easier for R to run vectorized operations...I guess it's because it already knows that everything within a vector can only be the same variable but with de-vectorized operations it has to check each variable 
+
+c <- a * b
+
+#de-vectorized approach
+
+d <- rep(NA, N)
+for(i in 1:N) {
+  d[i] <- a[i] * b[i]
+}
+
+#FUNCTIONS IN R
+
+is.logical()
+is.numeric()
+is.double()
+is.character()
+typeof()
+
+c() #combine
+
+?seq() #sequence 
+seq(10, 30, 3)
+seq(from = 10, to = 30, by = 3)
+seq(from = 10, to = 30, length.out = 100) #between 10 and 30, I want 100 numbers
+f <- c("a", "b", "c") #new vector with length of 3
+seq(10, 30, along.with = f) #along.with gets you a vector with values between 10 and 30 with the same number of values as another vector that you specify
+
+?rep() #replicate
+rep(5:6, times = 10)
+rep(5:6, each = 10) #replicates each variable 10 times individually not one after the other
+
+?rnorm()
+rnorm(5, 10, 8)
+rnorm(n = 5, mean = 10, sd = 8)
+
+sqrt()
+A <- seq(10, 30, along.with = f)
+sqrt(A)
+
+#create loop to print each value of A individually
+for(i in A){
+  print(i)
+}
+
+#same as above
+for(val in A){
+  print(val)
+}
+
+print()
+?paste()
+
+#PACKAGES IN R
+
+install.packages("ggplot2") #to install a package
+library(ggplot2) #to activate a package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

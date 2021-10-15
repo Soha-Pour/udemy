@@ -40,8 +40,8 @@ mean
 #same as above but shorter code
 x <- rnorm(10000)
 count <- 0 
-for(val in x) {
-  if(val >= -1 & val <= 1) {
+for(i in x) {
+  if(i >= -1 & i <= 1) {
     count = count+1 }
 }
 print(count)
@@ -49,10 +49,10 @@ mean <- count/length(x)
 mean
 
 #answer provided
-N <- 100000
+N <- 1000
 counter <- 0
-for(x in rnorm(N)){
-  if(x > -1 & x < 1){
+for(i in rnorm(N)){
+  if(i > -1 & i < 1){
     counter <- counter+1
   }
 }
