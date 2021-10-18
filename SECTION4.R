@@ -141,3 +141,67 @@ Salary
 
 matplot(t(Salary/MinutesPlayed), type = "b", pch=15:18, col=c(1:4, 6))
 legend("bottomleft", inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz=F)
+
+
+#SUBSETTING
+
+x <- c("a", "b", "c", "d", "e")
+x
+
+x[c(1, 5)]
+x[1]
+
+Games
+Games[1:3, 6:10] #first 3 rows, last 5 columns
+Games[c(1, 10),]
+Games[ ,c("2008", "2009")]
+
+#so far, it seems that everything we produce from subsetting a matrix is another matrix. 
+#but it isn't so!
+
+Games[1,] #this isn't a matrix, it's a vector
+
+Games[1,5] #vector
+
+#to make those into matrices
+
+Games[1, ,drop=F]
+Games[1, 5, drop=F]
+
+
+#Visualizing subsets
+
+Data <- MinutesPlayed[1:3,] #just the top 3 players
+
+matplot(t(Data), type="b", pch=15:18, col=c(1:4, 6)) #col is colors
+legend("bottomleft", inset=0.01, legend=Players[1:3], col=c(1:4, 6), pch=15:18, horiz=F)
+
+
+Data <- MinutesPlayed[1, ,drop=F] #just Kobe Bryant, must do drop because otherwise r would turn that into a vector and it wouldn't work.
+
+matplot(t(Data), type="b", pch=15:18, col=c(1:4, 6)) #col is colors
+legend("bottomleft", inset=0.01, legend=Players[1], col=c(1:4, 6), pch=15:18, horiz=F)
+
+
+#CREATING YOUR FIRST FUNCTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
