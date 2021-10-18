@@ -124,7 +124,7 @@ round(FieldGoalAttempts/Games, 1)
 
 #visualizing with matplot()
 
-?matplot() 
+?matplot() #only plots by column 
 
 matplot(FieldGoals) #this doesn't give us useful data because we want to plot by player (row) not year
 t(FieldGoals) #this functions allows us to flip the matrix around so the rows are columns and the columns are rows
@@ -136,6 +136,8 @@ legend("bottomleft", inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz
 matplot(t(FieldGoals/FieldGoalAttempts), type="b", pch=15:18, col=c(1:4, 6)) #col is colors
 legend("bottomleft", inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz=F)
 
+MinutesPlayed
+Salary
 
-
-
+matplot(t(Salary/MinutesPlayed), type = "b", pch=15:18, col=c(1:4, 6))
+legend("bottomleft", inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz=F)
