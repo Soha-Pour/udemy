@@ -196,5 +196,58 @@ myplot <- function(data, rows=1:10){
 myplot(Salary) 
 
 
+#practice making functions
+
+#function to convert temperatures from Fahrenheit to Celsius 
+
+fah_to_cel <- function(temp_f){
+  temp_c <- (temp_f - 32) * 5/9
+  return(temp_c)
+}
+
+fah_to_cel(32)
+
+cel_to_fah <- function(temp_c){
+  temp_f <- (temp_c * 9/5) + 32
+  return(temp_f)
+}
+
+cel_to_fah(0)
+
+
+# create a function that takes two vectors as arguments and returns a new vector with one vector (content) in the middle and the other (wrapper) on either end
+
+x2 <- c("A", "B", "C")
+y2 <- c(x2, "D") #add element to an existing vector
+
+highlight <- function(content, wrapper){
+  newvector <- c(wrapper, content, wrapper)
+  return(newvector)
+}
+
+highlight("^", "()")
+
+
+#create a function that returns a vector made up of the first and last elements of its input
+
+v <- rnorm(10)
+v
+
+v[1] #returns the vector's first element
+v[length(v)] #returns the vector's last element
+
+
+edges <- function(input_vector){
+  first_and_last <- c(input_vector[1], input_vector[length(input_vector)])
+  return(first_and_last)
+}
+
+edges(v)
+
+gjhgj 
+
+
+
+
 
 
