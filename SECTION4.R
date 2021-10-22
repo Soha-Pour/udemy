@@ -194,6 +194,7 @@ myplot <- function(data, rows=1:10){
 }
 
 myplot(Salary) 
+<<<<<<< HEAD
 
 
 #practice making functions
@@ -254,6 +255,10 @@ myplot <- function(data, rows=1:10){
 
 myplot(Salary) 
 
+f <- function(vector=1:3){
+  vector*5
+}
 
+f() + f(c(1, 1, 1))
 
 

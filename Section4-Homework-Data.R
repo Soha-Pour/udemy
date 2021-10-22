@@ -49,7 +49,8 @@ DerrickRose_FT <- c(146,146,146,197,259,476,194,0,27,152)
 DwayneWade_FT <- c(629,432,354,590,534,494,235,308,189,284)
 #Matrix
 #
-FreeThrows <- cbind(KobeBryant_FT, JoeJohnson_FT, LeBronJames_FT, CarmeloAnthony_FT, DwightHoward_FT, ChrisBosh_FT, ChrisPaul_FT, KevinDurant_FT, DerrickRose_FT, DwayneWade_FT)
+FreeThrows <- rbind(KobeBryant_FT, JoeJohnson_FT, LeBronJames_FT, CarmeloAnthony_FT, DwightHoward_FT, ChrisBosh_FT, ChrisPaul_FT, KevinDurant_FT, DerrickRose_FT, DwayneWade_FT)
+rm(KobeBryant_FT, JoeJohnson_FT, LeBronJames_FT, CarmeloAnthony_FT, DwightHoward_FT, ChrisBosh_FT, ChrisPaul_FT, KevinDurant_FT, DerrickRose_FT, DwayneWade_FT)
 rownames(FreeThrows) <- Players
 colnames(FreeThrows) <- Seasons
 #
@@ -67,7 +68,8 @@ DerrickRose_FTA <- c(205,205,205,250,338,555,239,0,32,187)
 DwayneWade_FTA <- c(803,535,467,771,702,652,297,425,258,370)
 #Matrix
 #
-FreeThrowAttempts <- cbind(KobeBryant_FTA, JoeJohnson_FTA, LeBronJames_FTA, CarmeloAnthony_FTA, DwightHoward_FTA, ChrisBosh_FTA, ChrisPaul_FTA, KevinDurant_FTA, DerrickRose_FTA, DwayneWade_FTA)
+FreeThrowAttempts <- rbind(KobeBryant_FTA, JoeJohnson_FTA, LeBronJames_FTA, CarmeloAnthony_FTA, DwightHoward_FTA, ChrisBosh_FTA, ChrisPaul_FTA, KevinDurant_FTA, DerrickRose_FTA, DwayneWade_FTA)
+rm(KobeBryant_FTA, JoeJohnson_FTA, LeBronJames_FTA, CarmeloAnthony_FTA, DwightHoward_FTA, ChrisBosh_FTA, ChrisPaul_FTA, KevinDurant_FTA, DerrickRose_FTA, DwayneWade_FTA)
 rownames(FreeThrowAttempts) <- Players
 colnames(FreeThrowAttempts) <- Seasons
 #
