@@ -147,50 +147,56 @@ qplot(data=merged, x=Internet.users, y=Birth.rate,
 
 #Task: Produce a scatter plot depicting life expectancy (y-axix) and fertility rate (x-axis) stats by country, categorized by countrie's regions
 
-#Load data into R
+#Step1: Load data into R
 
 wt.data <- read.csv("P2-Section5-Homework-Data.csv")
 head(wt.data)
-View(wt.data)
+tail(wt.data)
+str(wt.data)
+summary(wt.data)
+
+wt.data$Year 
+temp <- factor(wt.data$Year) #gives year variable levels 
 
 #Filter data set and produce two different df for years 1960 and 2013
 
-wt.data.1960 <- wt.data[wt.data$Year == "1960",]
-summary(wt.data.1960)
+data1960 <- wt.data[wt.data$Year == "1960",]
+summary(data1960)
 
-wt.data.2013 <- wt.data[wt.data$Year == "2013",]
-summary(wt.data.2013)
+data2013 <- wt.data[wt.data$Year == "2013",]
+summary(data2013)
 
 #Build data frames. turn provided vectors into df and give columns better names
 
-wt.mydf <- data.frame(Country.Code=Country_Code, Life.Ex.1960=Life_Expectancy_At_Birth_1960, Life.Ex.2013=Life_Expectancy_At_Birth_2013)
+add1960 <- data.frame(Code=Country_Code, Life.Ex.=Life_Expectancy_At_Birth_1960)
+add2013 <- data.frame(Code=Country_Code, Life.Ex.=Life_Expectancy_At_Birth_2013)
 
-head(wt.mydf)
-head(wt.data)
+summary(add1960)
+summary(add2013)
 
 #Merge data frames
 
 #Just 1960
-merged.df.1960 <- merge(wt.data.1960, wt.mydf, by.x="Country.Code", by.y="Country.Code")
-merged.df.1960$Life.Ex.2013 <- NULL
-head(merged.df.1960)
-str(merged)
+merged1960 <- merge(data1960, add1960, by.x="Country.Code", by.y="Code")
+merged1960$Year <- NULL
+head(merged1960)
+str(merged1960)
 
 #Just 2013
-merged.df.2013 <- merge(wt.data.2013, wt.mydf, by.x="Country.Code", by.y="Country.Code")
-merged.df.2013$Life.Ex.1960 <- NULL
-head(merged.df.2013)
-str(merged)
+merged2013 <- merge(data2013, add2013, by.x="Country.Code", by.y="Code")
+merged2013$Year <- NULL
+head(merged2013)
+str(merged2013)
 
 #Produce scatter plot 1960
 
-qplot(data=merged.df.1960, x=Life.Ex.1960, y=Fertility.Rate, 
+qplot(data=merged1960, x=Fertility.Rate, y=Life.Ex., 
       color=Region, size=I(3), shape=I(19), alpha=I(0.6),
-      main="Life Expectancy vs Fertility Rate")
+      main="Life Expectancy vs Fertility Rate (1960)")
 
-qplot(data=merged.df.2013, x=Life.Ex.2013, y=Fertility.Rate, 
+qplot(data=merged2013, x=Fertility.Rate, y=Life.Ex., 
       color=Region, size=I(3), shape=I(19), alpha=I(0.6),
-      main="Life Expectancy vs Fertility Rate")
+      main="Life Expectancy vs Fertility Rate (2013)")
 
 
 
