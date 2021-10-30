@@ -41,8 +41,54 @@ class(numeric)
 
 ##-----Step 5: Create the data visualization
 
-install.packages("ggplot2")
+#install.packages("ggplot2")
 library(ggplot2)
 
-a <- ggplot(data=films, aes(x=Genre, y=USARevPercent))
-a + geom_jitter(aes(size=Budget)) + geom_boxplot(size=1.2, alpha=.5)
+#--Filter
+
+#Method 1: Filter data frame with logical operator "OR"
+
+GenresOfInterest <- (films$Genre == "action") | (films$Genre == "adventure") | (films$Genre == "animation") | (films$Genre == "comedy") | (films$Genre == "drama")
+
+#Method 2: Filter data frame with %in% operator, which returns TRUE if anything inside the df matches the values in the vector provided.
+
+StudiosOfInterest <- films$Studio %in% c("Buena Vista Studios", "Fox", "Paramount Pictures", "Sony", "Universal", "WB")
+
+#--Combine the filters (to be in the visualization, the movie has to match both filters). What you do is create a new df. 
+
+films2 <- films[GenresOfInterest & StudiosOfInterest, ]
+View(films2)
+
+#--Prepare the plot's data and aes layers
+
+a <- ggplot(data=films2, aes(x=Genre, y=USARevPercent))
+
+#--Add geometries 
+b <- a + geom_jitter(aes(size=Budget, color=Studio)) + geom_boxplot(alpha=.5, outlier.color=NA)
+
+#-----Step 5: Add non-data ink
+
+c <- b + 
+  xlab("Genre") + 
+  ylab("Gross US % (Revenue in US / Revenue Total)") +
+  ggtitle("Domestic Gross % by Genre") +
+  
+  theme(axis.title.x = element_text(color="DarkGreen", size=15), 
+        axis.title.y = element_text(color="DarkGreen", size=15),
+        
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        
+        legend.title = element_text(size=15), 
+        legend.text = element_text(size=10), 
+        
+        plot.title = element_text(hjust=.5, color="Black", 
+                                  size=30),
+        
+        text = element_text(family="Comic Sans MS")
+        
+        )
+
+c$labels$size <- "Budget $M"
+
+c 
